@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: xabarchi-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DELAY_SECONDS
+        value: "2"
